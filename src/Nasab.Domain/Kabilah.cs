@@ -24,5 +24,12 @@ namespace Nasab.Domain
         {
             return this;
         }
+
+        public void AddWedding(Guid father, Guid mother, Guid person)
+        {
+            var wedding = new Wedding(Guid.NewGuid(), new PeopleId(father.ToString()), Identity, new PeopleId(mother.ToString()));
+
+            wedding.AddChild(new PeopleId(person.ToString()));
+        }
     }
 }

@@ -33,5 +33,10 @@ namespace Nasab.Domain.Entities
         {
             return this;
         }
+
+        internal void AddChild(PeopleId peopleId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

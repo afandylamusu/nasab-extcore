@@ -29,7 +29,11 @@ namespace Nasab.Domain.Commands
         {
             Contact contact = await _commandBus.Send(new AddPeopleCommand { ContactID = request.PersonId, Names = request.PersonNames }, cancellationToken);
 
-            var nasab = new PeopleNasab(Guid.NewGuid(), new PeopleId(contact.Identity.ToString()), PersonFaithStage.Ordinary, new PeopleId(request.FatherId));
+            var nasab = new PeopleNasab(Guid.NewGuid(), 
+                person: new PeopleId(contact.Identity.ToString()), 
+                faithStage: PersonFaithStage.Ordinary, 
+                father: new PeopleId(request.FatherId),
+                kabilahId: Guid.Parse(request.KabilahId));
 
             await _peopleNasabRepository.Update(nasab);
 

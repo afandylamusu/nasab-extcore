@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Nasab.EventHandlers
 {
-    public class OnPeopleNasabAddedEventHandler : IDomainEventHandler<OnPeopleNasabAdded>
+    public class OnNasabAddedWithoutMotherEventHandler : IDomainEventHandler<OnNasabAddedWithoutMother>
     {
-        public Task Handle(OnPeopleNasabAdded notification, CancellationToken cancellationToken)
+        public Task Handle(OnNasabAddedWithoutMother notification, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
