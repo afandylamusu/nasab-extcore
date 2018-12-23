@@ -4,12 +4,13 @@
 using Barebone.ViewModels.Barebone;
 using ExtCore.Data.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Barebone.Controllers
 {
     public class BareboneController : ControllerBase
     {
-        public BareboneController(IStorage storage) : base(storage)
+        public BareboneController(IServiceProvider provider) : base(provider)
         {
         }
 

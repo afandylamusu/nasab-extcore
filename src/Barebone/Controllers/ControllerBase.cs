@@ -12,11 +12,15 @@ namespace Barebone.Controllers
 {
     public abstract class ControllerBase : Microsoft.AspNetCore.Mvc.Controller
     {
-        protected IStorage Storage { get; private set; }
+        protected IStorage Storage { get; }
+        protected IWebApiContext WorkContext { get; }
+        protected IMediator Mediator { get; }
 
-        public ControllerBase(IStorage storage)
+        public ControllerBase(IServiceProvider serviceProvider)
         {
-            this.Storage = storage;
+            this.Storage = serviceProvider.GetService<IStorage>();
+            this.WorkContext = serviceProvider.GetService<IWebApiContext>();
+            this.Mediator = serviceProvider.GetService<IMediator>();
         }
     }
 

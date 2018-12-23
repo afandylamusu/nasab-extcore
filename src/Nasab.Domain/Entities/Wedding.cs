@@ -1,5 +1,4 @@
 ﻿using Infrastructure.Domain;
-using Nasab.Domain.ReadModels;
 using Nasab.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,7 @@ namespace Nasab.Domain.Entities
 {
     public class Wedding : EntityBase<Wedding>
     {
-        public Wedding(Guid identity, PersonId father, PersonId mother, Guid kabilahId) : base(identity)
+        public Wedding(Guid identity, PeopleId father, Guid kabilahId, PeopleId mother = null) : base(identity)
         {
             KabilahID = kabilahId;
 
@@ -17,13 +16,17 @@ namespace Nasab.Domain.Entities
 
             Divorced = false;
 
-            Chidren = new List<PersonId>().AsReadOnly();
+            Chidren = new List<PeopleId>().AsReadOnly();
         }
 
-        public IReadOnlyCollection<PersonId> Chidren { get; }
+        public IReadOnlyCollection<PeopleId> Chidren { get; }
+
         public Guid KabilahID { get; }
-        public PersonId Father { get; }
-        public PersonId Mother { get; }
+
+        public PeopleId Father { get; }
+
+        public PeopleId Mother { get; }
+
         public bool Divorced { get; }
 
         protected override Wedding GetEntity()

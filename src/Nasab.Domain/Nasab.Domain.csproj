@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure.EntityFrameworkCore\Infrastructure.Domain.csproj" />
+    <ProjectReference Include="..\Nasab.Domain.Events\Nasab.Domain.Events.csproj" />
   </ItemGroup>
 
 </Project>

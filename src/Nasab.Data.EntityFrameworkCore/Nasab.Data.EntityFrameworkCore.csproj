@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure.Data.EntityFrameworkCore\Infrastructure.Data.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Nasab.Domain\Nasab.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

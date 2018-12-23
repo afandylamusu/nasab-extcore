@@ -3,7 +3,7 @@ using Infrastructure.Domain.Repositories;
 
 namespace Contacts.Domain.Repositories
 {
-    public interface IPeopleRepository : IAggregateRepository<People, PeopleReadModel>
+    public interface IContactRepository : IAggregateRepository<Contact, ContactReadModel>
     {
     }
 }

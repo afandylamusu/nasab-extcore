@@ -3,9 +3,9 @@ using System;
 
 namespace Contacts.Domain.ReadModels
 {
-    public class PeopleReadModel : ReadModelBase
+    public class ContactReadModel : ReadModelBase
     {
-        public PeopleReadModel(Guid identity) : base(identity)
+        public ContactReadModel(Guid identity) : base(identity)
         {
         }
     }

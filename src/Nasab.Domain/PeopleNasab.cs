@@ -7,17 +7,22 @@ namespace Nasab.Domain
 {
     public class PeopleNasab : AggregateRoot<PeopleNasab, PeopleNasabReadModel>
     {
-        public PeopleNasab(Guid identity, PersonId person, PersonFaithStage faithStage) : base(identity)
+        public PeopleNasab(Guid identity, PeopleId person, PersonFaithStage faithStage, PeopleId father) : base(identity)
         {
             Person = person;
+            Father = father;
             NasabPath = string.Empty;
             FaithStage = faithStage;
 
             Died = false;
         }
 
-        public PersonId Person { get; }
+        public PeopleNasab(PeopleNasabReadModel readModel) : base(readModel)
+        {
+        }
 
+        public PeopleId Person { get; }
+        public PeopleId Father { get; }
         public string NasabPath { get; }
 
         public PersonFaithStage FaithStage { get; }

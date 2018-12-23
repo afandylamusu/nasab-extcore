@@ -1,10 +1,11 @@
 ﻿using ExtCore.Data.Abstractions;
+using System;
 
 namespace Contacts.Controllers
 {
     public class ProfileController : Barebone.Controllers.ControllerBase
     {
-        public ProfileController(IStorage storage) : base(storage)
+        public ProfileController(IServiceProvider provider) : base(provider)
         {
         }
     }

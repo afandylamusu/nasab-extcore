@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 namespace Nasab.Domain.ValueObjects
 {
     [JsonConverter(typeof(SingleValueObjectConverter))]
-    public class PersonId : SingleValueObject<string>
+    public class PeopleId : SingleValueObject<string>
     {
-        public PersonId(string value) : base(value)
+        public PeopleId(string value) : base(value)
         {
         }
     }

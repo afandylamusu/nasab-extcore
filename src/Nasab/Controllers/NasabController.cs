@@ -1,11 +1,11 @@
-﻿using ExtCore.Data.Abstractions;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Nasab.Controllers
 {
     public class NasabController : Barebone.Controllers.ControllerBase
     {
-        public NasabController(IStorage storage) : base(storage)
+        public NasabController(IServiceProvider provider) : base(provider)
         {
         }
 

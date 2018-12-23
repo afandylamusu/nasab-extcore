@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Barebone\Barebone.csproj" />
+    <ProjectReference Include="..\Contacts.Domain\Contacts.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

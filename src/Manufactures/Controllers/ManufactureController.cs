@@ -4,16 +4,15 @@ using Manufactures.Domain.Orders.Repositories;
 using Manufactures.ViewModels.Manufacture;
 using Microsoft.AspNetCore.Mvc;
 using Moonlay.ExtCore.Mvc.Abstractions;
+using System;
 
 namespace Manufactures.Controllers
 {
     public class ManufactureController : Barebone.Controllers.ControllerBase
     {
-        private readonly IWorkContext _workContext;
 
-        public ManufactureController(IWorkContext workContext, IStorage storage) : base(storage)
+        public ManufactureController(IServiceProvider provider) : base(provider)
         {
-            _workContext = workContext;
         }
 
         public ActionResult Index()
@@ -32,7 +31,7 @@ namespace Manufactures.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                ManufactureOrder order = new CreateViewModelMapper().Map(createViewModel, _workContext.CurrentUser);
+                ManufactureOrder order = new CreateViewModelMapper().Map(createViewModel, WorkContext.CurrentUser);
 
                 this.Storage.GetRepository<IManufactureOrderRepository>().Update(order).Wait();
 

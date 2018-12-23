@@ -1,12 +1,13 @@
 ﻿using Contacts.ViewModels.Contacts;
 using ExtCore.Data.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Contacts.Controllers
 {
     public class ContactsController : Barebone.Controllers.ControllerBase
     {
-        public ContactsController(IStorage storage) : base(storage)
+        public ContactsController(IServiceProvider provider) : base(provider)
         {
         }
 
