@@ -1,6 +1,6 @@
 ﻿using FluentScheduler;
 
-namespace DanLiris.Admin.Web.Schedulers
+namespace Nasab.Admin.Web.Schedulers
 {
     public class SampleJob : IJob
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DanLiris.Admin.Web.Migrations
+namespace Nasab.Admin.Web.Migrations
 {
     public partial class Add_ProductGoods : Migration
     {

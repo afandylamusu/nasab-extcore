@@ -4,7 +4,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace DanLiris.Admin.Web
+namespace Nasab.Admin.Web
 {
     public class Program
     {

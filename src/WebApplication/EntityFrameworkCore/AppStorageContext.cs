@@ -11,7 +11,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DanLiris.Admin.Web
+namespace Nasab.Admin.Web
 {
     public class AppStorageContext : StorageContext
     {

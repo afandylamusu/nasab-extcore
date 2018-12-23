@@ -1,6 +1,6 @@
 ﻿using ExtCore.Data.EntityFramework;
 
-namespace DanLiris.Admin.Web
+namespace Nasab.Admin.Web
 {
     public class DesignTimeStorageContextFactory : DesignTimeStorageContextFactoryBase<AppStorageContext>
     {

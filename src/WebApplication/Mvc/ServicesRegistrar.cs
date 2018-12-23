@@ -1,4 +1,4 @@
-﻿using DanLiris.Admin.Web;
+﻿using Nasab.Admin.Web;
 using ExtCore.Infrastructure.Actions;
 using Microsoft.Extensions.DependencyInjection;
 using Moonlay.ExtCore.Mvc.Abstractions;

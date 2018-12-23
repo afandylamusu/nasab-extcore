@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2FE680E8-878C-4FF3-80FC-4241411518C6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanLiris.Admin.Web", "src\WebApplication\DanLiris.Admin.Web.csproj", "{73D1DF82-3328-4862-9B50-65A7B13589F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nasab.Admin.Web", "src\WebApplication\Nasab.Admin.Web.csproj", "{73D1DF82-3328-4862-9B50-65A7B13589F2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Barebone", "src\Barebone\Barebone.csproj", "{1F9BA08C-6AB4-43BA-95D1-48F73D8371D8}"
 EndProject

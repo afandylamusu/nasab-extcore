@@ -1,7 +1,7 @@
 ﻿// Copyright © 2017 Dmitry Sikorsky. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using DanLiris.Admin.Web.Schedulers;
+using Nasab.Admin.Web.Schedulers;
 using ExtCore.Data.EntityFramework;
 using ExtCore.WebApplication.Extensions;
 using FluentScheduler;
@@ -14,7 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
 
-namespace DanLiris.Admin.Web
+namespace Nasab.Admin.Web
 {
     public class Startup
     {

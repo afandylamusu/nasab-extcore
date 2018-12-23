@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DanLiris.Admin.Web.Migrations
+namespace Nasab.Admin.Web.Migrations
 {
     public partial class Alter_GoodsConstruction_RemCodes : Migration
     {

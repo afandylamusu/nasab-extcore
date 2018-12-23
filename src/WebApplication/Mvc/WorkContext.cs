@@ -1,7 +1,7 @@
 ﻿using Infrastructure;
 using System.Diagnostics;
 
-namespace DanLiris.Admin.Web
+namespace Nasab.Admin.Web
 {
     public class WorkContext : IWebApiContext
     {
