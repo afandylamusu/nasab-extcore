@@ -18,7 +18,7 @@ namespace Manufactures
             {
                 return new MenuItem[]
                 {
-                    new MenuItem("/manufacture", "Manufactures", 100)
+                    new MenuItem("/manufacture", "Manufactures", 1000)
                 };
             }
         }
