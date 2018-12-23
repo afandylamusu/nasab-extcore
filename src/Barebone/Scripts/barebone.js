@@ -6,5 +6,11 @@
 
 $(document).ready(
     function () {
+        $('.input-validation-error').tooltip({
+            placement: 'right',
+            title: function () {
+                return $(this).attr('data-val-required');
+            }
+        });
     }
 );

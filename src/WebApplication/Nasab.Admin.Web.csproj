@@ -7,13 +7,9 @@
 
   <ItemGroup>
     <Compile Remove="dist\**" />
-    <Compile Remove="wwwroot_\**" />
     <Content Remove="dist\**" />
-    <Content Remove="wwwroot_\**" />
     <EmbeddedResource Remove="dist\**" />
-    <EmbeddedResource Remove="wwwroot_\**" />
     <None Remove="dist\**" />
-    <None Remove="wwwroot_\**" />
   </ItemGroup>
 
   <ItemGroup>

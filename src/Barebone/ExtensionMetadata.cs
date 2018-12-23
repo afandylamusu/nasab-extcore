@@ -15,7 +15,7 @@ namespace Barebone
                 return new StyleSheet[]
                 {
                     //new StyleSheet("//fonts.googleapis.com/css?family=Open+Sans", 100),
-                    //new StyleSheet("/Styles.barebone.css", 200)
+                    new StyleSheet("/Styles.barebone.css", 200)
                 };
             }
         }
