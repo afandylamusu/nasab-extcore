@@ -6,6 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="dist\**" />
+    <Compile Remove="wwwroot_\**" />
+    <Content Remove="dist\**" />
+    <Content Remove="wwwroot_\**" />
+    <EmbeddedResource Remove="dist\**" />
+    <EmbeddedResource Remove="wwwroot_\**" />
+    <None Remove="dist\**" />
+    <None Remove="wwwroot_\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20181214130840_Alter_WeavingOrders_AddCompositionId.cs" />
     <Compile Remove="Migrations\20181214130840_Alter_WeavingOrders_AddCompositionId.Designer.cs" />
   </ItemGroup>
