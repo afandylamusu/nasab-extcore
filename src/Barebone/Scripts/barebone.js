@@ -5,6 +5,6 @@
 })(window.application = window.application || {});
 
 $(document).ready(
-  function () {
-  }
+    function () {
+    }
 );

@@ -12,7 +12,8 @@ namespace Barebone.ViewModels.Shared
             return new MenuItemViewModel()
             {
                 Url = menuItem.Url,
-                Name = menuItem.Name
+                Name = menuItem.Name,
+                Icon = menuItem.Icon
             };
         }
     }
