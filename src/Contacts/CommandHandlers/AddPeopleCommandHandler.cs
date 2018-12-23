@@ -25,7 +25,7 @@ namespace Contacts.Domain.Commands
 
             await _contactRepo.Update(contact);
 
-            _storage.Save();
+            //_storage.Save();
 
             return contact;
         }

@@ -8,5 +8,7 @@ namespace Contacts.Domain.ReadModels
         public ContactReadModel(Guid identity) : base(identity)
         {
         }
+
+        public string NamesJson { get; set; }
     }
 }

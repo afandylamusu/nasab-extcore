@@ -7,7 +7,12 @@ namespace Nasab.Domain.Commands
 {
     public class AddNasabByAdminCommand : ICommand<PeopleNasab>
     {
-        public string PersonId { get; set; }
+        public AddNasabByAdminCommand()
+        {
+            PersonId = Guid.NewGuid().ToString();
+        }
+
+        public string PersonId { get; }
         public string[] PersonNames { get; set; }
         public string FatherId { get; set; }
         public string KabilahId { get; set; }
