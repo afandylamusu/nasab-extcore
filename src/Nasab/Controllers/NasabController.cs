@@ -26,7 +26,7 @@ namespace Nasab.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                model.Map(out AddNasabByAdminCommand command);
+                model.Map(out AddNasabCommand command);
 
                 var result = Mediator.Send(command).Result;
 

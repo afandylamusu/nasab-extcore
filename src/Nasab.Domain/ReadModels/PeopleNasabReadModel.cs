@@ -9,11 +9,16 @@ namespace Nasab.Domain.ReadModels
         {
         }
 
-        public string PersonId { get; internal set; }
-        public string FatherId { get; internal set; }
+        public Guid PersonId { get; internal set; }
+
+        public Guid FatherId { get; internal set; }
+
         public string NasabPath { get; internal set; }
+
         public PersonFaithStage FaithStage { get; internal set; }
+
         public bool Died { get; internal set; }
-        public string KabilahId { get; internal set; }
+
+        public Guid KabilahId { get; internal set; }
     }
 }

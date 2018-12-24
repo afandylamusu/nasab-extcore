@@ -17,20 +17,20 @@ namespace Nasab.Domain
             FaithStage = faithStage;
             Died = died;
 
-            ReadModel = new PeopleNasabReadModel(Identity) {
+            ReadModel = new PeopleNasabReadModel(Identity)
+            {
                 PersonId = Person.Value,
                 FatherId = Father.Value,
-                KabilahId = KabilahId.ToString(),
+                KabilahId = KabilahId,
                 NasabPath = NasabPath,
                 FaithStage = FaithStage,
                 Died = Died
             };
 
             if (mother == null)
-                ReadModel.AddDomainEvent(new OnNasabAddedWithoutMother(Guid.Parse(Person.Value), Guid.Parse(Father.Value), kabilah: KabilahId));
+                ReadModel.AddDomainEvent(new OnNasabAddedWithoutMother(Person.Value, Father.Value, kabilah: KabilahId));
             else
-                ReadModel.AddDomainEvent(new OnNasabAddedWithMother(Guid.Parse(Person.Value), Guid.Parse(Father.Value), Guid.Parse(mother.Value), kabilah: KabilahId));
-
+                ReadModel.AddDomainEvent(new OnNasabAddedWithMother(Person.Value, Father.Value, mother.Value, kabilah: KabilahId));
         }
 
         public PeopleNasab(PeopleNasabReadModel readModel) : base(readModel)

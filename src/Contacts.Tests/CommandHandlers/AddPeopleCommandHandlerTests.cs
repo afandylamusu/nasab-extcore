@@ -39,7 +39,7 @@ namespace Contacts.Tests.CommandHandlers
             AddPeopleCommand request = new AddPeopleCommand
             {
                 Names = new string[] { "Afandy", "Lamusu" },
-                ContactID = Guid.NewGuid().ToString()
+                ContactId = Guid.NewGuid()
             };
             CancellationToken cancellationToken = CancellationToken.None;
 

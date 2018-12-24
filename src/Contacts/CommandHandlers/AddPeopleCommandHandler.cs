@@ -21,11 +21,9 @@ namespace Contacts.Domain.Commands
 
         public async Task<Contact> Handle(AddPeopleCommand request, CancellationToken cancellationToken)
         {
-            var contact = new Contact(Guid.Parse(request.ContactID), request.Names);
+            var contact = new Contact(request.ContactId, request.Names);
 
             await _contactRepo.Update(contact);
-
-            //_storage.Save();
 
             return contact;
         }

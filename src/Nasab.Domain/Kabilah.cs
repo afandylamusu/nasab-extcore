@@ -27,9 +27,9 @@ namespace Nasab.Domain
 
         public void AddWedding(Guid father, Guid mother, Guid person)
         {
-            var wedding = new Wedding(Guid.NewGuid(), new PeopleId(father.ToString()), Identity, new PeopleId(mother.ToString()));
+            var wedding = new Wedding(Guid.NewGuid(), new PeopleId(father), Identity, new PeopleId(mother));
 
-            wedding.AddChild(new PeopleId(person.ToString()));
+            wedding.AddChild(new PeopleId(person));
         }
     }
 }

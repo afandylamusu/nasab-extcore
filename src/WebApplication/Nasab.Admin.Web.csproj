@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20181214130840_Alter_WeavingOrders_AddCompositionId.cs" />
-    <Compile Remove="Migrations\20181214130840_Alter_WeavingOrders_AddCompositionId.Designer.cs" />
+    <Compile Remove="Migrations\20181224164829_Initial.cs" />
+    <Compile Remove="Migrations\20181224164829_Initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

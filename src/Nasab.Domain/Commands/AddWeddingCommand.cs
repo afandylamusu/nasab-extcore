@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Infrastructure.Domain.Commands;
 using Nasab.Domain.Entities;
 
@@ -8,12 +9,15 @@ namespace Nasab.Domain.Commands
     {
         public AddWeddingCommand()
         {
-            Chidren = new List<string>();
+            Chidren = new List<Guid>();
         }
 
-        public string KabilahId { get; set; }
-        public string FatherId { get; set; }
-        public string MotherId { get; set; }
-        public List<string> Chidren { get; set; }
+        public Guid KabilahId { get; set; }
+
+        public Guid FatherId { get; set; }
+
+        public Guid MotherId { get; set; }
+
+        public List<Guid> Chidren { get; set; }
     }
 }

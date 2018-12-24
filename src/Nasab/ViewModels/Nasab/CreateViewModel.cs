@@ -8,11 +8,11 @@ namespace Nasab.ViewModels.Nasab
     {
         [Display(Name = "Father")]
         [Required]
-        public string FatherId { get; set; }
+        public Guid FatherId { get; set; }
 
         [Display(Name = "Kabilah")]
         [Required]
-        public string KabilahId { get; set; }
+        public Guid KabilahId { get; set; }
 
         [Display(Name = "First Name")]
         [Required]
@@ -22,9 +22,9 @@ namespace Nasab.ViewModels.Nasab
         [Required]
         public string LastName { get; set; }
 
-        internal void Map(out AddNasabByAdminCommand command)
+        internal void Map(out AddNasabCommand command)
         {
-            command = new AddNasabByAdminCommand
+            command = new AddNasabCommand
             {
                 FatherId = FatherId,
                 KabilahId = KabilahId,

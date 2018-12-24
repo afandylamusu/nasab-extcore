@@ -2,6 +2,7 @@
 using MediatR;
 using Nasab.Domain.Commands;
 using Nasab.Domain.Events;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,10 +22,10 @@ namespace Nasab.EventHandlers
         {
             var wedding = await _commandBus.Send(new AddWeddingCommand()
             {
-                KabilahId = notification.Kabilah.ToString(),
-                FatherId = notification.Father.ToString(),
-                MotherId = notification.Mother.ToString(),
-                Chidren = new List<string> { notification.Person.ToString() }
+                KabilahId = notification.Kabilah,
+                FatherId = notification.Father,
+                MotherId = notification.Mother,
+                Chidren = new List<Guid> { notification.Person }
             });
         }
     }

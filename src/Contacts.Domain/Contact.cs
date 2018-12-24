@@ -11,6 +11,10 @@ namespace Contacts.Domain
         public Contact(Guid identity, string[] names) : base(identity)
         {
             Names = names;
+
+            ReadModel = new ContactReadModel(Identity) {
+                NamesJson = Names.Serialize()
+            };
         }
 
         public Contact(ContactReadModel readModel) : base(readModel)

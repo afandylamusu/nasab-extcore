@@ -41,9 +41,9 @@ namespace Nasab.Tests.CommandHandlers
             this.mockRepository.VerifyAll();
         }
 
-        private AddNasabByAdminCommandHandler CreateAddNasabByAdminCommandHandler()
+        private AddNasabCommandHandler CreateAddNasabByAdminCommandHandler()
         {
-            return new AddNasabByAdminCommandHandler(this.mockMediator.Object, this.mockStorage.Object);
+            return new AddNasabCommandHandler(this.mockMediator.Object, this.mockStorage.Object);
         }
 
         [Fact(DisplayName = "Add Nasab ByAdmin Command Handler")]
@@ -52,15 +52,15 @@ namespace Nasab.Tests.CommandHandlers
             // Arrange
             var unitUnderTest = this.CreateAddNasabByAdminCommandHandler();
 
-            AddNasabByAdminCommand request = new AddNasabByAdminCommand() {
+            AddNasabCommand request = new AddNasabCommand() {
                 PersonNames = new string[] { "Afandy", "Lamusu" },
-                FatherId = Guid.NewGuid().ToString()
+                FatherId = Guid.NewGuid()
             };
 
             CancellationToken cancellationToken = CancellationToken.None;
 
 
-            var contact = new Contact(Guid.Parse(request.PersonId), request.PersonNames);
+            var contact = new Contact(request.PersonId, request.PersonNames);
 
             this.mockMediator.Setup(x => x.Send(It.IsAny<IRequest<Contact>>(), cancellationToken)).Returns(Task.FromResult(contact));
 
