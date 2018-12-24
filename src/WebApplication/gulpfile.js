@@ -27,7 +27,7 @@ var wait = require('gulp-wait');
 
 var paths = {
     dist: {
-        base: 'dist',
+        base: 'wwwroot',
         img:  'wwwroot/img',
         libs: 'wwwroot/vendor'
     },
@@ -37,11 +37,12 @@ var paths = {
     },
     src: {
         base: './',
-        css:  'wwwroot/css',
+        css: 'ClientApp/css',
+        libs: 'ClientApp/vendor/**/*',
         html: '**/*.html',
-        img:  'wwwroot/img/**/*.+(png|jpg|gif|svg)',
-        js:   'wwwroot/js/**/*.js',
-        scss: 'wwwroot/scss/**/*.scss'
+        img:  'ClientApp/img/**/*.+(png|jpg|gif|svg)',
+        js:   'ClientApp/js/**/*.js',
+        scss: 'ClientApp/scss/**/*.scss'
     }
 }
 
@@ -77,7 +78,7 @@ gulp.task('minify:css', function() {
 
 gulp.task('minify:js', function(cb) {
     return gulp.src([
-            paths.src.base + '/wwwroot/js/argon.js'
+            paths.src.base + '/ClientApp/js/argon.js'
         ])
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
@@ -104,15 +105,15 @@ gulp.task('watch', ['browserSync', 'scss'], function() {
 
 // Clean
 
-gulp.task('clean:dist', function() {
-    return del.sync(paths.dist.base);
+gulp.task('clean:dist', function () {
+    return del.sync([paths.dist.base]);
 });
 
 // Copy CSS
 
 gulp.task('copy:css', function() {
     return gulp.src([
-        paths.src.base + '/wwwroot/css/argon.css'
+        paths.src.base + '/ClientApp/css/argon.css'
     ])
     .pipe(gulp.dest(paths.dist.base + '/css'))
 });
@@ -121,7 +122,7 @@ gulp.task('copy:css', function() {
 
 gulp.task('copy:js', function() {
     return gulp.src([
-        paths.src.base + '/wwwroot/js/argon.js'
+        paths.src.base + '/ClientApp/js/argon.js'
     ])
     .pipe(gulp.dest(paths.dist.base + '/js'))
 });
@@ -129,14 +130,46 @@ gulp.task('copy:js', function() {
 // Build
 
 gulp.task('build', function(callback) {
-    runSequence('clean:dist', 'scss', 'copy:css', 'copy:js', 'minify:js', 'minify:css',
+    runSequence('clean:dist', 'scss', 'copy:css', 'copy:js', 'minify:js', 'minify:css', 'images', 'vendors',
         callback);
 });
 
 // Default
 
-gulp.task('default', function(callback) {
-    runSequence(['scss', 'browserSync', 'watch'],
-        callback
-    )
+//gulp.task('default', function(callback) {
+//    runSequence(['scss', 'browserSync', 'watch'],
+//        callback
+//    )
+//});
+
+gulp.task('images', function (callback) {
+    return gulp.src(paths.src.img)
+        .pipe(gulp.dest(paths.dist.img));
+});
+
+//var vendors = [
+//    '@fortawesome/fontawesome-free',
+//    'anchor-js/dist',
+//    'jquery/dist',
+//    'bootstrap/dist',
+//    'bootstrap-datepicker/dist',
+//    'chart.js/dist',
+//    'clipboard/dist',
+//    'headroom.js/dist',
+//    'holderjs/dist',
+//    'jquery.scrollbar/dist',
+//    'jquery-scroll-lock/dist',
+//    'nouislider/dist',
+//    'nucleo/dist',
+//    'onscreen/dist',
+//    'prismjs/dist'
+//];
+
+gulp.task('vendors', function () {
+    //return vendors.map(function (vendor) {
+    //    return gulp.src('node_modules/' + vendor + '/**/*')
+    //        .pipe(gulp.dest(paths.dist.libs + '/' + vendor.replace(/\/.*/, '')));
+    //});
+    return gulp.src(paths.src.libs)
+        .pipe(gulp.dest(paths.dist.libs));
 });
