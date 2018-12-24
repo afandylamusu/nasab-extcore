@@ -54,8 +54,7 @@ namespace Nasab.Tests.CommandHandlers
 
             AddNasabByAdminCommand request = new AddNasabByAdminCommand() {
                 PersonNames = new string[] { "Afandy", "Lamusu" },
-                FatherId = Guid.NewGuid().ToString(),
-                PersonId = Guid.NewGuid().ToString()
+                FatherId = Guid.NewGuid().ToString()
             };
 
             CancellationToken cancellationToken = CancellationToken.None;

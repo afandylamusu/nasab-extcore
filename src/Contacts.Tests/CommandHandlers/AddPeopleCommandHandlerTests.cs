@@ -1,4 +1,5 @@
 using Contacts.Domain.Commands;
+using ExtCore.Data.Abstractions;
 using Moq;
 using System;
 using System.Threading;
@@ -10,10 +11,14 @@ namespace Contacts.Tests.CommandHandlers
     public class AddPeopleCommandHandlerTests : IDisposable
     {
         private readonly MockRepository mockRepository;
+        private readonly Mock<IStorage> mockStorage;
 
         public AddPeopleCommandHandlerTests()
         {
             this.mockRepository = new MockRepository(MockBehavior.Strict);
+
+            this.mockStorage = this.mockRepository.Create<IStorage>();
+
         }
 
         public void Dispose()
@@ -23,7 +28,7 @@ namespace Contacts.Tests.CommandHandlers
 
         private AddPeopleCommandHandler CreateAddPeopleCommandHandler()
         {
-            return new AddPeopleCommandHandler();
+            return new AddPeopleCommandHandler(mockStorage.Object);
         }
 
         [Fact]
@@ -34,7 +39,7 @@ namespace Contacts.Tests.CommandHandlers
             AddPeopleCommand request = new AddPeopleCommand
             {
                 Names = new string[] { "Afandy", "Lamusu" },
-                ContactID = Guid.NewGuid()
+                ContactID = Guid.NewGuid().ToString()
             };
             CancellationToken cancellationToken = CancellationToken.None;
 

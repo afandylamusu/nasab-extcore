@@ -28,7 +28,7 @@ var wait = require('gulp-wait');
 var paths = {
     dist: {
         base: 'wwwroot',
-        img:  'wwwroot/img',
+        img: 'wwwroot/img',
         libs: 'wwwroot/vendor'
     },
     base: {
@@ -40,46 +40,46 @@ var paths = {
         css: 'ClientApp/css',
         libs: 'ClientApp/vendor/**/*',
         html: '**/*.html',
-        img:  'ClientApp/img/**/*.+(png|jpg|gif|svg)',
-        js:   'ClientApp/js/**/*.js',
+        img: 'ClientApp/img/**/*.+(png|jpg|gif|svg)',
+        js: 'ClientApp/js/**/*.js',
         scss: 'ClientApp/scss/**/*.scss'
     }
 }
 
 // Compile SCSS
 
-gulp.task('scss', function() {
-  return gulp.src(paths.src.scss)
-    .pipe(wait(500))
-    .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([require('postcss-flexbugs-fixes')]))
-    .pipe(autoprefixer({
-        browsers: ['> 1%']
-    }))
-    .pipe(csscomb())
-    .pipe(gulp.dest(paths.src.css))
-    .pipe(browserSync.reload({
-        stream: true
-    }));
+gulp.task('scss', function () {
+    return gulp.src(paths.src.scss)
+        .pipe(wait(500))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(postcss([require('postcss-flexbugs-fixes')]))
+        .pipe(autoprefixer({
+            browsers: ['> 1%']
+        }))
+        .pipe(csscomb())
+        .pipe(gulp.dest(paths.src.css))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
 });
 
 // Minify CSS
 
-gulp.task('minify:css', function() {
-  return gulp.src([
+gulp.task('minify:css', function () {
+    return gulp.src([
         paths.src.css + '/argon.css'
     ])
-    .pipe(cleanCss())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(paths.dist.base + '/css'))
+        .pipe(cleanCss())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest(paths.dist.base + '/css'))
 });
 
 // Minify JS
 
-gulp.task('minify:js', function(cb) {
+gulp.task('minify:js', function (cb) {
     return gulp.src([
-            paths.src.base + '/ClientApp/js/argon.js'
-        ])
+        paths.src.base + '/ClientApp/js/argon.js'
+    ])
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(paths.dist.base + '/js'))
@@ -87,7 +87,7 @@ gulp.task('minify:js', function(cb) {
 
 // Live reload
 
-gulp.task('browserSync', function() {
+gulp.task('browserSync', function () {
     browserSync.init({
         server: {
             baseDir: [paths.src.base, paths.base.base]
@@ -97,7 +97,7 @@ gulp.task('browserSync', function() {
 
 // Watch for changes
 
-gulp.task('watch', ['browserSync', 'scss'], function() {
+gulp.task('watch', ['browserSync', 'scss'], function () {
     gulp.watch(paths.src.scss, ['scss']);
     gulp.watch(paths.src.js, browserSync.reload);
     gulp.watch(paths.src.html, browserSync.reload);
@@ -111,25 +111,25 @@ gulp.task('clean:dist', function () {
 
 // Copy CSS
 
-gulp.task('copy:css', function() {
+gulp.task('copy:css', function () {
     return gulp.src([
         paths.src.base + '/ClientApp/css/argon.css'
     ])
-    .pipe(gulp.dest(paths.dist.base + '/css'))
+        .pipe(gulp.dest(paths.dist.base + '/css'))
 });
 
 // Copy JS
 
-gulp.task('copy:js', function() {
+gulp.task('copy:js', function () {
     return gulp.src([
         paths.src.base + '/ClientApp/js/argon.js'
     ])
-    .pipe(gulp.dest(paths.dist.base + '/js'))
+        .pipe(gulp.dest(paths.dist.base + '/js'))
 });
 
 // Build
 
-gulp.task('build', function(callback) {
+gulp.task('build', function (callback) {
     runSequence('clean:dist', 'scss', 'copy:css', 'copy:js', 'minify:js', 'minify:css', 'images', 'vendors',
         callback);
 });
