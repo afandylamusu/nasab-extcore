@@ -19,6 +19,7 @@ namespace Contacts.Domain
 
         public Contact(ContactReadModel readModel) : base(readModel)
         {
+            Names = readModel.NamesJson.Deserialize<string[]>();
         }
 
 

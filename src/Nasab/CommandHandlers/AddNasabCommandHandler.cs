@@ -42,7 +42,7 @@ namespace Nasab.Domain.Commands
             if (nasabExists != null)
                 throw Validator.ErrorValidation((nameof(request.PersonNames), $"{string.Join(" ", request.PersonNames)} Already has nasab"));
 
-            Contact contact = await _commandBus.Send(new AddPeopleCommand { ContactId = request.PersonId, Names = request.PersonNames }, cancellationToken);
+            Contact contact = persons.FirstOrDefault() ?? await _commandBus.Send(new AddPeopleCommand { ContactId = request.PersonId, Names = request.PersonNames }, cancellationToken);
 
             var nasab = new PeopleNasab(Guid.NewGuid(),
                 person: new PeopleId(contact.Identity),
